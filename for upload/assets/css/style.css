@@ -1,0 +1,159 @@
+
+:root{
+  --accent: #F36F1A;
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --radius: 10px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Navigation list */
+ul{
+  list-style:none;
+  margin:0;
+  padding:8px 12px;
+  background:var(--accent);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+ul li{margin:0}
+
+ul li a{
+  display:block;
+  color:#ffffff;
+  padding:10px 14px;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:600;
+}
+
+ul li a:hover, ul li a:focus{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  outline:none;
+}
+
+/* Slideshow */
+.slideshow-container{
+  width:100%;
+  max-width:900px;
+  aspect-ratio:16/9;
+  position:relative;
+  margin:24px auto;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:#000;
+}
+
+.slide{display:none}
+
+.slide-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Fading animation */
+.fade{animation:fadeEffect 1.2s ease-in-out}
+
+@keyframes fadeEffect{from{opacity:.4}to{opacity:1}}
+
+/* Prev/Next buttons */
+.prev,.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:#fff;
+  font-size:28px;
+  padding:8px 12px;
+  cursor:pointer;
+  user-select:none;
+  background:rgba(0,0,0,0.35);
+  border-radius:6px;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+/* Content area (note: keep class name as in HTML) */
+.cta-containter{
+  text-align:center;
+  margin:24px;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* Typography and spacing */
+h1,h2,h3{color:var(--text);margin:12px 0}
+p{margin:16px 0;color:var(--muted)}
+
+a{color:var(--accent)}
+
+/* Small screens */
+@media (max-width:640px){
+  .slideshow-container{aspect-ratio:4/3}
+  ul{flex-wrap:wrap}
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 16px 0;
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contact-form button[type="submit"]:hover {
+  background: rgba(243, 111, 26, 0.85);
+  transition: background 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(243, 111, 26, 0.1);
+}
